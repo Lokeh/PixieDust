@@ -1,0 +1,41 @@
+<html>
+	<head>
+		<script src="pixiedust.js"></script>
+		<script>
+			/* WOOO! Let's take this baby for a spin...*/
+			window.onload = function () {
+
+			    this.likes = 'Potatoes';
+			    this.setLikes = function (string) {
+			        likes = string;
+			    };
+
+			    this.Test = 'Super ninja two-way data biiiiind!!!!!!';
+
+			    function Person(name, age) {
+			        return {
+			            'name': name,
+			                'age': age
+			        };
+			    }
+			    this.Kathy = new Person('Kathy', 23);
+			    bindingInit();
+			};
+		</script>
+	</head>
+	<body>
+		<div data-bound>
+	    	<h1>Hello, {{ Kathy.name }}!</h1>
+		    <p>{{ Test }}</p>
+		    <p>I like: {{ likes }}</p>
+
+		    Name: <input type="text" data-model="Kathy.name">
+		    <br />
+		    <textarea type="text" style="width: 50%" data-model="Test"></textarea>
+		    <br />Likes:
+		    <button data-click="setLikes('Turtles')">Turtles</button>
+		    <button data-click="setLikes('Potatoes')">Potatoes</button>
+		</div>
+		<div data-bound>{{ whatever }}</div>
+	</body>
+</html>
