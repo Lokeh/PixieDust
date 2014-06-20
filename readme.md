@@ -2,6 +2,8 @@ PixieDust
 ==============
 Angular-like two-way data binding. I got curious how Angular's magic two-way binding with variables and forms worked, so I decided to try implementing it myself.
 
+http://jsfiddle.net/fJYk7/5/
+
 In your JS, you can use it like so:
 
 ```javascript
