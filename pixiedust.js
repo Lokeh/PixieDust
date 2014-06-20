@@ -74,7 +74,7 @@ function bindingUpdate() { // This function watches the bound variables and writ
         if (getValue(binding) !== registry.index[binding].value) {
             registry.index[binding].value = getValue(binding);
             registry.index[binding].elements.forEach(function (el) {
-                el.innerText = registry.index[binding].value;
+                el.innerHtml = registry.index[binding].value;
             });
         }
     }
