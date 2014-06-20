@@ -14,10 +14,10 @@ window.onload = function () {
   this.Test = 'Super ninja two-way data biiiiind!!!!!!';
 
   function Person(name, age) {
-      return {
-          'name': name,
-              'age': age
-      };
+	return {
+  	  'name': name,
+	  'age': age
+	};
   }
   this.Kathy = new Person('Kathy', 23);
   
