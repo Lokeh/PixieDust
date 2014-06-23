@@ -49,10 +49,14 @@ And in your HTML, similar to AngularJS' syntax:
 ToDo
 -------
  - Apparently addEventHandler does not garbage collect on node destruct. Either handle this or switch to binding directly to the node property.
- - Support for arrays (d'oh!)
+
  - Support for radios, checkboxes
  - Arbitrary javascript execution in {{ }} i.e. {{ 1 + 2 }}
  - Repeat
  - Filtering
  - Multiple scopes
- - Custom triggers
+ - Custom triggers'
+
+Done
+-------
+ - Support for arrays (d'oh!) (6/23)
