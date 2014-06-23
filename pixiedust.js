@@ -1,9 +1,9 @@
 'use strict';
 
 
-/* The real jewels of this endeavour... this is the magic that makes it possible */
+/* this is the magic that makes it possible */
 function getValue(obj) {
-    var pieces = obj.split('.');
+    var pieces = obj.split(/[^A-Za-z]/);
     if (pieces.length <= 1) {
         return window[obj] ? eval(obj) : '';
     } else {
@@ -17,6 +17,10 @@ function setValue(obj, val) {
     return old;
 }
 /* END MAGIC */
+
+function escapeRegExp(str) {
+  return str.replace(/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, "\\$&");
+}
 
 var bindingRegistry = function () {
     if (bindingRegistry.prototype._instance) {
@@ -53,13 +57,14 @@ function bindingCompile() { // This function parses the {{ variable }} tags in t
             return bind.match(/{{([^}}]+)}}/)[1]; // removes {{ }}
         });
 
-
+        console.log(bindings);
         bindings.forEach(function (bind) {
             registry.index[bind.trim()] = {
                 'value': getValue(bind.trim()), // Push variable names and values into global registry for use in bindingRegister() and bindingUpdate();
                 'elements': []
             };
-            var reg = new RegExp('{{' + bind + '}}', 'g');
+            var reg = new RegExp('{{' + escapeRegExp(bind) + '}}', 'g');
+            console.log(reg);
             el.innerHTML = el.innerHTML.replace(reg, '<span class="data-binding" data-binding="' + bind.trim() + '">' + getValue(bind.trim()) + '</span>');
         });
     }

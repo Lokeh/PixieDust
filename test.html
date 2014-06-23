@@ -19,6 +19,9 @@
 			        };
 			    }
 			    this.Kathy = new Person('Kathy', 23);
+			    
+			    this.whatever = [];
+			    this.whatever.push('whateva');
 			    bindingInit();
 			};
 		</script>
@@ -36,6 +39,6 @@
 		    <button data-click="setLikes('Turtles')">Turtles</button>
 		    <button data-click="setLikes('Potatoes')">Potatoes</button>
 		</div>
-		<div data-bound>{{ whatever }}</div>
+		<div data-bound>{{ whatever[0] }}</div>
 	</body>
 </html>
